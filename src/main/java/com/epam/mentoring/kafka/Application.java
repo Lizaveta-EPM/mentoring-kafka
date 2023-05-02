@@ -1,14 +1,12 @@
 package com.epam.mentoring.kafka;
 
-import java.util.concurrent.ExecutionException;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Application {
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        String topic = "test-topic";
-        AtLeastOnceKafkaProducer atLeastOnceKafkaProducer = new AtLeastOnceKafkaProducer(topic);
-        atLeastOnceKafkaProducer.sendMessages();
-        AtMostOnceKafkaConsumer atMostOnceKafkaConsumer = new AtMostOnceKafkaConsumer(topic);
-        atMostOnceKafkaConsumer.processRecords();
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
     }
 }
